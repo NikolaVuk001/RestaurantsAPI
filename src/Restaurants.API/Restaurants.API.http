@@ -1,0 +1,130 @@
+
+@Restaurants.API_HostAddress = https://localhost:7245
+@token = CfDJ8Ilf0fzbU6lGlD6A03wianAKnP7H-8ZyeEdlg1ApwF1C97MIgF-Ost-F-IIZJ_ukSFlKeNnwmSe7p-cnH0cge0tAer7Iqy74GETtR_bXfohXpB8WeKWPKS-tH3jcAd4uDhLB3T5a-yMyDB8Ct0qqaFPjy9iHgj4nASAjAg6FbSx2pfENDMF16xi5Ba5bNAzI1EVOrpDbGla5NRjQCcRFHrceJh4rJllysDB00arEC-6vakdtD_Zexn35cBKDYsMvgXoxFajQLGXTvDLb8nPAImo2YxO7Yl07m2M8Pm5EDr44Uo6JjT0ia_mr694w9cvGE5mW7GeDzkZ24OoYA4z8RIwfgOczovBLQUno98SjbAeydh8cFMdSeinWDNfbrE6tDUq72D4WS1aFezlST7USZ8iZIxwcJaDE-YPsXdBAoSxdqhfL5WZFxK8yXejGzHFphOdrZr5jv26Yqu7tlOXF7peA8lGEMmnqqAFgrtB6n-OUnea2TcSSRWN6dbnGohGgGcXpVpaVXBZFntPVjV21_vpQSCKiTE6YjYPMPZV35E5K_D-YSeyrGY9lh38gh7EbXUwzE8ufvHNUKmpYAO6oR25yjkQvnDuMyaXWYFWilwugtWh-pkZ-ibp4G5Ce-Y78Tui3YlEbztl7GLnJJMrkqiMnT0vzLDPA-fyHRtFoJ1kbqXTbuxnin6haV3FvN8n7ZxJYF16RX0ih66ta1v_xNpbsTQvaFhqzQuycK4gOkvUkeEt_ReX7xv_BwX8RgVikkBVNlOy4knXNeAW9Ryto51TRXsP9SucxocUJ0ODH_oJ3
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants?pageSize=5&pageNumber=1&sortBy=Name&searchPhrase=kfc
+Authorization: Bearer {{token}}
+
+###
+
+
+
+
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Name": "Testing",
+  "Description": "A culinary expiriance like no other",
+  "Category": "Italian",
+  "Has delivery": true,
+  "ContactEmail": "info@gourmetdelights.com",
+  "ContactNumber": "061-6933578",
+  "City": "Metropolis",
+  "Street": "456 Gourmet Avenue",
+  "PostalCode": "54321"
+}
+
+###
+
+GET https://localhost:7245/api/restaurants/10
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/500
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/10
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "LUKINA KUHINJA"
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurant/9/dishes
+Content-Type: application/json
+
+{
+  "name": "Test Dish",
+  "description": "Test Description",
+  "Price": "10",
+  "kiloCalories": 0
+}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/9
+Authorization: Bearer {{token}}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurant/1/dishes
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurant/9/dishes/3
+
+###
+
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurant/9/dishes
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+    "email": "user@test.com",
+    "password": "Password1!"
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+    "email": "admin@test.com",
+    "password": "Password1!"
+}
+
+###
+GET https://localhost:7245/api/restaurants/10
+Authorization: Bearer {{token}}
+
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Content-Type: application/json
+
+{
+  //UpdateUserDetailsCommand
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "UserEmail": "testuser@test.com",
+  "RoleName": "Owner"
+}
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "UserEmail": "testuser@test.com",
+  "RoleName": "Owner"
+}
+###
