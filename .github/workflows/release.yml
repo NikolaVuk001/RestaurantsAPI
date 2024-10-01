@@ -1,10 +1,10 @@
- name: restaurants-api-cd
+name: restaurants-api-cd
 
- on:
-   push:
-     branches:
-       -main
-    workflow_dispatch:
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
 
 jobs:
   build:
